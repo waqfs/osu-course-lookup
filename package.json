@@ -1,0 +1,20 @@
+{
+  "name": "osu-course-lookup",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "au25": "bun run src/index.ts --term 1258 --predict 1252",
+    "sp26": "bun run src/index.ts --term 1262 --predict 1258",
+    "su26": "bun run src/index.ts --term 1264 --predict 1262",
+    "au26": "bun run src/index.ts --term 1268 --predict 1262"
+  },
+  "dependencies": {
+    "enquirer": "^2.4.1"
+  }
+}
