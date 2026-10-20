@@ -1,5 +1,6 @@
 {
   "name": "osu-course-lookup",
+  "license": "Unlicense",
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
