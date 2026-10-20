@@ -20,7 +20,7 @@ export async function get_subject(): Promise<string | null> {
   const subjects = await possible_subjects();
 
   console.clear();
-  const response = await Enquirer.prompt({
+  const response = await Enquirer.prompt<{ subject: string }>({
     type: 'autocomplete',
     name: 'subject',
     message: 'Select a subject:',

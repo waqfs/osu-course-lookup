@@ -6,7 +6,7 @@ async function fetch_course_data(termId: string, subject: string): Promise<any> 
   if (cached_subject_search && new Date(cached_subject_search._expires) > new Date()) return cached_subject_search.data;
 
   const res = await fetch(
-    `https://content.osu.edu/v2/classes/search?q=${subject.toLowerCase()}&campus=col&academic-career=ugrd&subject=${subject.toLowerCase()}&term=${termId}`
+    `https://content.osu.edu/v2/classes/search?q=${subject.toLowerCase()}&campus=col&academic-career=ugrd&subject=${subject.toLowerCase()}&term=${termId}`,
   );
 
   const data = await res.json();
@@ -29,7 +29,7 @@ export async function get_course(termId: string, subject: string): Promise<strin
   const courses = await possible_courses(termId, subject);
 
   console.clear();
-  const response = await Enquirer.prompt({
+  const response = await Enquirer.prompt<{ course: string }>({
     type: 'autocomplete',
     name: 'course',
     message: 'Select a course:',

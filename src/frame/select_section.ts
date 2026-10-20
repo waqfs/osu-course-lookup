@@ -10,7 +10,7 @@ async function fetch_section_data(subject: string, courseId: string, termId: str
   }
 
   const res = await fetch(
-    `https://content.osu.edu/v2/classes/search?q=${courseId}&subject=${subject.toLowerCase()}&term=${termId}&campus=col&academic-career=ugrd`
+    `https://content.osu.edu/v2/classes/search?q=${courseId}&subject=${subject.toLowerCase()}&term=${termId}&campus=col&academic-career=ugrd`,
   );
   try {
     const data = await res.json();
@@ -29,7 +29,7 @@ async function fetch_predict_section_data(subject: string, predictTermId: string
   if (cached_source) return cached_source.data;
 
   const res = await fetch(
-    `https://content.osu.edu/v2/classes/search?q=${subject.toLowerCase()}&campus=col&academic-career=ugrd&subject=${subject.toLowerCase()}&term=${predictTermId}`
+    `https://content.osu.edu/v2/classes/search?q=${subject.toLowerCase()}&campus=col&academic-career=ugrd&subject=${subject.toLowerCase()}&term=${predictTermId}`,
   );
 
   const data = await res.json();
@@ -109,11 +109,11 @@ export async function get_section(subject: string, termId: string, predictTermId
           .replaceAll(' ', '_')} ${meetings.join('+')}`,
         value: '' + Math.random(),
       };
-    })
+    }),
   );
 
   console.clear();
-  const response = await Enquirer.prompt({
+  const response = await Enquirer.prompt<{ section: string }>({
     type: 'autocomplete',
     name: 'section',
     message: 'Select a section:',
