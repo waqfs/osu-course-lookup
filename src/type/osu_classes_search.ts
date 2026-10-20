@@ -131,7 +131,7 @@ export type SectionDetail = {
   termCode: string;
 };
 
-export type MeetingDetail = {
+export type MeetingDetail = HistoricMeetingDetail & {
   meetingNumber: number;
   facilityId: string;
   facilityType: string;
@@ -143,10 +143,11 @@ export type MeetingDetail = {
   room: string;
   buildingDescription: string;
   buildingDescriptionShort: string;
-  startTime: string;
-  endTime: string;
-  startDate: string;
-  endDate: string;
+  standingMeetingPattern: unknown | null;
+};
+
+export type HistoricMeetingDetail = {
+  facilityId: string;
   monday: boolean;
   tuesday: boolean;
   wednesday: boolean;
@@ -154,7 +155,10 @@ export type MeetingDetail = {
   friday: boolean;
   saturday: boolean;
   sunday: boolean;
-  standingMeetingPattern: unknown | null;
+  startTime: string;
+  endTime: string;
+  startDate: string;
+  endDate: string;
   instructors: Instructor[];
 };
 
