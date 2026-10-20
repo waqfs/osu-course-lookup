@@ -28,7 +28,8 @@
     "paths": {
       "@frame/*": ["./src/frame/*"],
       "@lib/*": ["./src/lib/*"],
-      "@cache/*": ["./src/.cache/*"]
+      "@cache/*": ["./src/.cache/*"],
+      "@type/*": ["./src/type/*"]
     }
   }
 }
