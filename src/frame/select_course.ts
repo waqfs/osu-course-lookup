@@ -21,7 +21,9 @@ async function possible_courses(termId: string, subject: string): Promise<Record
 
   const max_width = process.stdout.columns - 15;
   return data.data.courses.map(item => ({
-    name: `${item.course.subject}-${item.course.catalogNumber} ${item.course.title.slice(0, max_width)}${item.course.title.length > max_width ? '...' : ''}`,
+    name: `${item.course.subject}-${item.course.catalogNumber} ${item.course.title?.slice(0, max_width) ?? '<No Title>'}${
+      (item.course.title?.length ?? -1) > max_width ? '...' : ''
+    }`,
     value: `${item.course.courseId}`,
   }));
 }
